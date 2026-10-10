@@ -19,6 +19,19 @@ def neighbors(r: int, c: int) -> list[tuple[int, int]]:
                 result.append((nr, nc))
     return result
 
+def find_numbers(line: str) -> list[tuple[int, int, int]]:
+    numbers = []
+    col = 0
+    while col < len(line):
+        if not line[col].isdigit():
+            col += 1
+            continue
+        start = col 
+        while col < len(line) and line[col].isdigit():
+            col += 1
+        numbers.append((start, col, int(line[start:col])))
+    return numbers
+
 
 def main():
     print("neighbors(0,0) ->", neighbors(0, 0), "| expect [(0, 1), (1, 0), (1, 1)]")
