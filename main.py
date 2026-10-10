@@ -5,7 +5,7 @@ rows = len(grid)
 cols = len(grid[0])
 
 def check_symbol(ch: str) -> bool:
-    return not ch.isdigit() and ch =/= "."
+    return not ch.isdigit() and ch != "."
 
 def neighbors(r: int, c: int) -> list[tuple[int, int]]:
     result = []
@@ -14,7 +14,16 @@ def neighbors(r: int, c: int) -> list[tuple[int, int]]:
             if dr == 0 and dc == 0:
                 continue
             nr = r + dr
-            nc = c +dc
+            nc = c + dc
             if 0 <= nr < rows and 0 <= nc < cols:
-                result.append((nr,nc))
+                result.append((nr, nc))
     return result
+
+
+def main():
+    print("neighbors(0,0) ->", neighbors(0, 0), "| expect [(0, 1), (1, 0), (1, 1)]")
+
+
+
+if __name__ == "__main__":
+    main()
